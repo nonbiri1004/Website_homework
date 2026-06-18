@@ -1,21 +1,30 @@
-// ===== HERO SLIDER =====
-const slides  = document.querySelectorAll('.hero-slide');
-const dots    = document.querySelectorAll('.hero-dot');
-const prevBtn = document.querySelector('.hero-prev');
-const nextBtn = document.querySelector('.hero-next');
+// ===== HERO SLIDER (Progress Bar) =====
+const slides      = document.querySelectorAll('.hero-slide');
+const progressBar = document.querySelector('.hero-progress__bar');
+const prevBtn     = document.querySelector('.hero-prev');
+const nextBtn     = document.querySelector('.hero-next');
+const DURATION    = 5000;
 let current = 0;
 let timer;
 
+function setProgress() {
+  progressBar.style.transition = 'none';
+  progressBar.style.width = '0%';
+  void progressBar.offsetWidth; // force reflow
+  progressBar.style.transition = `width ${DURATION}ms linear`;
+  progressBar.style.width = '100%';
+}
+
 function goTo(n) {
   slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
   current = (n + slides.length) % slides.length;
   slides[current].classList.add('active');
-  dots[current].classList.add('active');
+  setProgress();
 }
 
 function startAuto() {
-  timer = setInterval(() => goTo(current + 1), 5000);
+  setProgress();
+  timer = setInterval(() => goTo(current + 1), DURATION);
 }
 
 function resetAuto() {
@@ -26,7 +35,6 @@ function resetAuto() {
 if (slides.length) {
   prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
   nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
   startAuto();
 }
 
@@ -57,7 +65,7 @@ const header = document.getElementById('header');
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 60);
-});
+}, { passive: true });
 
 // ===== SMOOTH SCROLL =====
 document.querySelectorAll('.js-scroll-link').forEach(link => {
@@ -73,8 +81,6 @@ document.querySelectorAll('.js-scroll-link').forEach(link => {
 });
 
 // ===== SCROLL IN-VIEW ANIMATION =====
-const inviewEls = document.querySelectorAll('.inview');
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -82,9 +88,59 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -40px 0px'
-});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-inviewEls.forEach(el => observer.observe(el));
+document.querySelectorAll('.inview').forEach(el => observer.observe(el));
+
+// ===== STATS COUNTER =====
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 1800;
+  const start = performance.now();
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.stat-num').forEach(animateCounter);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsGrid = document.querySelector('.stats-grid');
+if (statsGrid) counterObserver.observe(statsGrid);
+
+// ===== NAV SCROLL SPY =====
+const sections  = document.querySelectorAll('main section[id]');
+const navLinks  = document.querySelectorAll('.header-nav a[href^="#"]');
+
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { threshold: 0.35, rootMargin: '-64px 0px -40% 0px' });
+
+sections.forEach(s => spyObserver.observe(s));
+
+// ===== BACK TO TOP =====
+const backTop = document.getElementById('backTop');
+
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('show', window.scrollY > 500);
+}, { passive: true });
+
+backTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
