@@ -1,5 +1,5 @@
 # Gemini 原始大圖 (source files, not used by website)
-assets/img/Gemini_Generated_Image_*.png
+assets/img/source-*.png
 
 # OS files
 .DS_Store
