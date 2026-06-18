@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>農比里咖啡 Nonbiri Coffee</title>
+  <meta name="description" content="農比里咖啡是一間位於台北大安區的小批次精品咖啡烘焙所，提供手沖、義式、冷萃等多種精品咖啡。">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+  <!-- CSS (minified) -->
+  <link rel="stylesheet" href="style.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <a href="#hero" class="header-logo js-scroll-link">
+      <span class="logo-en">Nonbiri Coffee</span>
+      <span class="logo-zh">農比里咖啡</span>
+    </a>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="#about"    class="js-scroll-link">About</a></li>
+        <li><a href="#menu"     class="js-scroll-link">Menu</a></li>
+        <li><a href="#beans"    class="js-scroll-link">Beans</a></li>
+        <li><a href="#location" class="js-scroll-link">Location</a></li>
+        <li><a href="#contact"  class="js-scroll-link">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="hamburger" class="hamburger" aria-label="開啟選單" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- 手機選單 -->
+  <div id="sp-nav" class="sp-nav" aria-hidden="true">
+    <ul>
+      <li><a href="#hero"     class="js-scroll-link js-sp-close">Top</a></li>
+      <li><a href="#about"    class="js-scroll-link js-sp-close">About</a></li>
+      <li><a href="#menu"     class="js-scroll-link js-sp-close">Menu</a></li>
+      <li><a href="#beans"    class="js-scroll-link js-sp-close">Beans</a></li>
+      <li><a href="#location" class="js-scroll-link js-sp-close">Location</a></li>
+      <li><a href="#contact"  class="js-scroll-link js-sp-close">Contact</a></li>
+    </ul>
+    <div class="sp-nav__social">
+      <a href="#" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <p class="sp-nav__mail">contact@nonbiricoffee.tw</p>
+  </div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero" class="hero">
+      <!-- 輪播背景 -->
+      <div class="hero-slider">
+        <div class="hero-slide active" style="background-image:url('assets/img/hero-1.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero-2.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero-3.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('assets/img/hero-4.jpg')"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <!-- 方向按鈕 -->
+      <button class="hero-prev" aria-label="上一張">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="hero-next" aria-label="下一張">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <!-- 分頁點 -->
+      <div class="hero-dots">
+        <button class="hero-dot active" aria-label="第 1 張"></button>
+        <button class="hero-dot" aria-label="第 2 張"></button>
+        <button class="hero-dot" aria-label="第 3 張"></button>
+        <button class="hero-dot" aria-label="第 4 張"></button>
+      </div>
+      <div class="hero-deco-ring"></div>
+      <div class="hero-content">
+        <p class="hero-sub">— Specialty Coffee Roastery —</p>
+        <h1 class="hero-title">
+          <span class="hero-title__line">Nonbiri</span>
+          <span class="hero-title__line">Coffee</span>
+        </h1>
+        <p class="hero-zh">農比里咖啡</p>
+        <p class="hero-caption">
+          慢慢烘，好好喝。<br>
+          在忙碌的日常裡，給自己一杯從容。
+        </p>
+        <a href="#about" class="hero-btn js-scroll-link">
+          <span>探索更多</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-img inview">
+            <!-- 請替換為實際咖啡照片 -->
+            <img
+              src="assets/img/about.jpg"
+              alt="農比里咖啡店內環境"
+              class="about-img__photo"
+              loading="lazy"
+            >
+            <div class="about-img__badge">Est. 2024</div>
+          </div>
+          <div class="about-text inview">
+            <p class="eyebrow">— About Us</p>
+            <h2 class="about-heading">Our<br><em>Concept</em></h2>
+            <p class="about-en">
+              Nonbiri Coffee is a small batch specialty roastery.<br>
+              We roast with care, keep it fresh,<br>
+              honest and handmade.<br>
+              For a few minutes, escape your busy day<br>
+              and enjoy a cup of coffee.
+            </p>
+            <p class="about-zh">
+              農比里咖啡是一間小批次精品烘焙所。<br>
+              精選世界各地優質產區的生豆，以慢火細心烘焙，<br>
+              只為了讓你喝到最新鮮、最誠實的一杯。<br>
+              歡迎你走進來，放慢腳步，感受咖啡的溫度。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MENU ===== -->
+    <section id="menu" class="menu">
+      <div class="container">
+        <div class="section-header inview">
+          <p class="eyebrow center">— Our Menu</p>
+          <h2 class="section-title center">Menu</h2>
+        </div>
+
+        <div class="menu-featured">
+          <div class="menu-card inview">
+            <!-- 請替換為實際照片 -->
+            <img src="assets/img/menu-espresso.jpg" alt="Espresso" class="menu-card__img" loading="lazy">
+            <div class="menu-card__overlay"></div>
+            <div class="menu-card__body">
+              <p class="menu-card__initial">E</p>
+              <h3 class="menu-card__name">Espresso</h3>
+              <p class="menu-card__desc">濃縮 · 單品豆直球</p>
+              <p class="menu-card__price">NT$80 <span>/ NT$100</span></p>
+            </div>
+          </div>
+          <div class="menu-card inview">
+            <img src="assets/img/menu-latte.jpg" alt="Latte" class="menu-card__img" loading="lazy">
+            <div class="menu-card__overlay"></div>
+            <div class="menu-card__body">
+              <p class="menu-card__initial">L</p>
+              <h3 class="menu-card__name">Latte</h3>
+              <p class="menu-card__desc">拿鐵 · 絲滑奶香</p>
+              <p class="menu-card__price">NT$140 <span>/ NT$160</span></p>
+            </div>
+          </div>
+          <div class="menu-card inview">
+            <img src="assets/img/menu-pourover.jpg" alt="Pour Over" class="menu-card__img" loading="lazy">
+            <div class="menu-card__overlay"></div>
+            <div class="menu-card__body">
+              <p class="menu-card__initial">P</p>
+              <h3 class="menu-card__name">Pour Over</h3>
+              <p class="menu-card__desc">手沖 · 每杯現點現做</p>
+              <p class="menu-card__price">NT$180</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-list inview">
+          <h3 class="menu-list__title">Other Menu</h3>
+          <div class="menu-row">
+            <div class="menu-row__name"><h4>Americano</h4><p>Hot / Iced</p></div>
+            <div class="menu-row__prices">
+              <dl><dt>Regular</dt><dd>NT$100</dd></dl>
+              <dl><dt>Large</dt><dd>NT$120</dd></dl>
+              <dl><dt>Iced</dt><dd>NT$120</dd></dl>
+            </div>
+          </div>
+          <div class="menu-row">
+            <div class="menu-row__name"><h4>Flat White</h4><p>Hot Only</p></div>
+            <div class="menu-row__prices">
+              <dl><dt>Regular</dt><dd>NT$150</dd></dl>
+            </div>
+          </div>
+          <div class="menu-row">
+            <div class="menu-row__name"><h4>Cold Brew</h4><p>Iced Only</p></div>
+            <div class="menu-row__prices">
+              <dl><dt>Regular</dt><dd>NT$160</dd></dl>
+            </div>
+          </div>
+          <div class="menu-row">
+            <div class="menu-row__name"><h4>Cappuccino</h4><p>Hot Only</p></div>
+            <div class="menu-row__prices">
+              <dl><dt>Regular</dt><dd>NT$140</dd></dl>
+            </div>
+          </div>
+          <div class="menu-row">
+            <div class="menu-row__name"><h4>Mocha</h4><p>Hot / Iced</p></div>
+            <div class="menu-row__prices">
+              <dl><dt>Regular</dt><dd>NT$160</dd></dl>
+              <dl><dt>Iced</dt><dd>NT$170</dd></dl>
+            </div>
+          </div>
+          <p class="menu-list__note">以上價格含稅。菜單內容可能依季節調整。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BEANS ===== -->
+    <section id="beans" class="beans">
+      <div class="container">
+        <div class="section-header inview">
+          <p class="eyebrow center">— Our Coffee</p>
+          <h2 class="section-title center">Beans</h2>
+          <p class="beans-lead">精選三大產區，每週小批次鮮焙，<br>從產地到你的杯中，每一步都誠實以對。</p>
+        </div>
+        <div class="beans-grid">
+
+          <div class="bean-card inview" data-roast="light">
+            <!-- 請替換為實際豆款照片 -->
+            <img src="assets/img/beans-ethiopia.jpg" alt="Ethiopia Yirgacheffe" class="bean-card__img" loading="lazy">
+            <div class="bean-card__inner">
+              <div class="bean-card__top">
+                <span class="bean-card__num">01</span>
+                <span class="bean-card__tag">Light Roast</span>
+              </div>
+              <h3 class="bean-card__origin">Ethiopia</h3>
+              <p class="bean-card__region">耶加雪菲 Yirgacheffe</p>
+              <ul class="bean-card__notes">
+                <li>茉莉花香</li><li>檸檬</li><li>水蜜桃</li>
+              </ul>
+              <p class="bean-card__desc">明亮果酸，清爽宜人，最受手沖愛好者歡迎。</p>
+              <p class="bean-card__price">100g <strong>NT$380</strong></p>
+            </div>
+          </div>
+
+          <div class="bean-card inview" data-roast="medium">
+            <img src="assets/img/beans-colombia.jpg" alt="Colombia Huila" class="bean-card__img" loading="lazy">
+            <div class="bean-card__inner">
+              <div class="bean-card__top">
+                <span class="bean-card__num">02</span>
+                <span class="bean-card__tag">Medium Roast</span>
+              </div>
+              <h3 class="bean-card__origin">Colombia</h3>
+              <p class="bean-card__region">惠蘭 Huila</p>
+              <ul class="bean-card__notes">
+                <li>焦糖</li><li>榛果</li><li>黑糖</li>
+              </ul>
+              <p class="bean-card__desc">均衡醇厚，易於入口，適合各種沖煮方式。</p>
+              <p class="bean-card__price">100g <strong>NT$340</strong></p>
+            </div>
+          </div>
+
+          <div class="bean-card inview" data-roast="dark">
+            <img src="assets/img/beans-guatemala.jpg" alt="Guatemala Antigua" class="bean-card__img" loading="lazy">
+            <div class="bean-card__inner">
+              <div class="bean-card__top">
+                <span class="bean-card__num">03</span>
+                <span class="bean-card__tag">Medium Dark</span>
+              </div>
+              <h3 class="bean-card__origin">Guatemala</h3>
+              <p class="bean-card__region">安提瓜 Antigua</p>
+              <ul class="bean-card__notes">
+                <li>黑巧克力</li><li>煙燻</li><li>核桃</li>
+              </ul>
+              <p class="bean-card__desc">厚實圓潤，餘韻悠長，最適合拿鐵與卡布奇諾。</p>
+              <p class="bean-card__price">100g <strong>NT$320</strong></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOCATION ===== -->
+    <section id="location" class="location">
+      <div class="container">
+        <div class="location-inner inview">
+          <p class="eyebrow light">— Find Us</p>
+          <h2 class="section-title light">Location</h2>
+          <p class="location-caption">
+            We value sustainability, community<br>and quality experiences.
+          </p>
+          <div class="location-body">
+            <div class="location-details">
+              <div class="location-block">
+                <p class="location-block__label">地址</p>
+                <address>
+                  106 台北市大安區<br>和平東路二段 99 號<br>
+                  <small>捷運大安森林公園站 3 號出口 步行 5 分鐘</small>
+                </address>
+              </div>
+              <div class="location-block">
+                <p class="location-block__label">營業時間</p>
+                <p><span>Mon – Fri</span>08:00 – 20:00</p>
+                <p><span>Sat – Sun</span>09:00 – 21:00</p>
+              </div>
+              <div class="location-block">
+                <p class="location-block__label">聯絡</p>
+                <p>contact@nonbiricoffee.tw</p>
+              </div>
+            </div>
+            <!-- Google Map (OpenStreetMap embed) -->
+            <div class="location-map">
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=121.527%2C25.025%2C25.036%2C121.543&bbox=121.527%2C25.025%2C121.543%2C25.036&layer=mapnik&marker=25.0316%2C121.5350"
+                title="農比里咖啡地圖"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header inview">
+          <p class="eyebrow center">— Get in Touch</p>
+          <h2 class="section-title center">Contact</h2>
+        </div>
+        <form class="contact-form inview" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">姓名 Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">電子郵件 Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">主旨 Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="訂豆詢問 / 合作邀請 / 其他">
+          </div>
+          <div class="form-group">
+            <label for="message">留言 Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Leave a message..."></textarea>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="form-btn">送出留言 <span>→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <p class="logo-en">Nonbiri Coffee</p>
+          <p class="logo-zh">農比里咖啡</p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#about"    class="js-scroll-link">About</a></li>
+            <li><a href="#menu"     class="js-scroll-link">Menu</a></li>
+            <li><a href="#beans"    class="js-scroll-link">Beans</a></li>
+            <li><a href="#location" class="js-scroll-link">Location</a></li>
+            <li><a href="#contact"  class="js-scroll-link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter / X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Nonbiri Coffee. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
